@@ -1,8 +1,20 @@
-import React from 'react';
+import type React from 'react';
 import { useTable} from 'react-table'
 import { columns } from './columns';
 
-export const DataTable = ({ data }) => {
+interface RowData {
+  name: string,
+  email: string,
+  role: string,
+  status: string,
+}
+
+interface DataTableProps {
+  data: RowData[];
+  
+}
+
+export const DataTable : React.FC<DataTableProps> = ({ data }) => {
   const {
     getTableProps,
     getTableBodyProps,

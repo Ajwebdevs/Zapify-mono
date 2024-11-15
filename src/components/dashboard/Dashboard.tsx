@@ -50,15 +50,15 @@ export function Dashboard() {
   }, []);
 
 
-  const [users, setUsers] = useState([]);
-  
+  const [users, setUsers] = useState<{ name: string; email: string; role: string; status: string }[]>([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const data = [
         { name: 'John Doe', email: 'john@example.com', role: 'Admin', status: 'Active' },
         { name: 'Jane Doe', email: 'jane@example.com', role: 'User', status: 'Inactive' },
       ];
-      setUsers(data); //data issue fix in post
+      setUsers(data); 
     };
     
     fetchData();
