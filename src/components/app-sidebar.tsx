@@ -1,7 +1,6 @@
 import {
   BookOpen,
   Bot,
-  Command,
   LifeBuoy,
   SquareTerminal,
 } from "lucide-react"

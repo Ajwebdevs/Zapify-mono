@@ -5,13 +5,12 @@ export const Route = createRootRoute({
   component: RootComponent,
 })
 
-function RootComponent({children}: {children: React.ReactNode}){
+function RootComponent(){
   const currentLocation = useLocation();
-  const IsDashboard = currentLocation.pathname === '/dashboard';
+  const IsDashboard = currentLocation.pathname === '/';
   return (
     <React.Fragment>
-      {!IsDashboard && <LandingPage/>}
-      {children}
+      {IsDashboard ? <LandingPage /> : null}
       <Outlet />
     </React.Fragment>
   )
