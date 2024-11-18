@@ -1,3 +1,4 @@
+import { Automation } from '@/components/dashboard/automations/automation'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/(dashboard)/automation')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/(dashboard)/automation')({
 })
 
 function RouteComponent() {
-  return 'Hello /dashboard/automation!'
+  return <Automation />
 }

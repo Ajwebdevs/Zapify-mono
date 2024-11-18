@@ -26,13 +26,13 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "./dashboard",
       icon: SquareTerminal, 
       isActive: true,
     },
     {
       title: "Automation",
-      url: "#",
+      url: "/automation",
       icon: Bot,
     },
     {
