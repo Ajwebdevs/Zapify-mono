@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as dashboardDashboardImport } from './routes/(dashboard)/dashboard'
+import { Route as dashboardBillingImport } from './routes/(dashboard)/billing'
 import { Route as dashboardAutomationImport } from './routes/(dashboard)/automation'
 
 // Create/Update Routes
@@ -26,6 +27,12 @@ const IndexRoute = IndexImport.update({
 const dashboardDashboardRoute = dashboardDashboardImport.update({
   id: '/(dashboard)/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const dashboardBillingRoute = dashboardBillingImport.update({
+  id: '/(dashboard)/billing',
+  path: '/billing',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -53,6 +60,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof dashboardAutomationImport
       parentRoute: typeof rootRoute
     }
+    '/(dashboard)/billing': {
+      id: '/(dashboard)/billing'
+      path: '/billing'
+      fullPath: '/billing'
+      preLoaderRoute: typeof dashboardBillingImport
+      parentRoute: typeof rootRoute
+    }
     '/(dashboard)/dashboard': {
       id: '/(dashboard)/dashboard'
       path: '/dashboard'
@@ -68,12 +82,14 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/automation': typeof dashboardAutomationRoute
+  '/billing': typeof dashboardBillingRoute
   '/dashboard': typeof dashboardDashboardRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/automation': typeof dashboardAutomationRoute
+  '/billing': typeof dashboardBillingRoute
   '/dashboard': typeof dashboardDashboardRoute
 }
 
@@ -81,27 +97,35 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/(dashboard)/automation': typeof dashboardAutomationRoute
+  '/(dashboard)/billing': typeof dashboardBillingRoute
   '/(dashboard)/dashboard': typeof dashboardDashboardRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/automation' | '/dashboard'
+  fullPaths: '/' | '/automation' | '/billing' | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/automation' | '/dashboard'
-  id: '__root__' | '/' | '/(dashboard)/automation' | '/(dashboard)/dashboard'
+  to: '/' | '/automation' | '/billing' | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/(dashboard)/automation'
+    | '/(dashboard)/billing'
+    | '/(dashboard)/dashboard'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   dashboardAutomationRoute: typeof dashboardAutomationRoute
+  dashboardBillingRoute: typeof dashboardBillingRoute
   dashboardDashboardRoute: typeof dashboardDashboardRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   dashboardAutomationRoute: dashboardAutomationRoute,
+  dashboardBillingRoute: dashboardBillingRoute,
   dashboardDashboardRoute: dashboardDashboardRoute,
 }
 
@@ -117,6 +141,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/(dashboard)/automation",
+        "/(dashboard)/billing",
         "/(dashboard)/dashboard"
       ]
     },
@@ -125,6 +150,9 @@ export const routeTree = rootRoute
     },
     "/(dashboard)/automation": {
       "filePath": "(dashboard)/automation.tsx"
+    },
+    "/(dashboard)/billing": {
+      "filePath": "(dashboard)/billing.tsx"
     },
     "/(dashboard)/dashboard": {
       "filePath": "(dashboard)/dashboard.tsx"

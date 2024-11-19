@@ -1,5 +1,6 @@
 const IMAGES = {
     logo: new URL('./LandingPage/Logo.png', import.meta.url).href,
+    Star: new URL('./Billing/Star.png', import.meta.url).href,
     HeroImage: new URL('./LandingPage/Robots.png', import.meta.url).href,
 }
 

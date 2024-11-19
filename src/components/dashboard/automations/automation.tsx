@@ -5,7 +5,7 @@ import * as React from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
+  // BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -164,16 +164,12 @@ export function Automation() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        {/* Header */}
         <header className="flex h-16 items-center gap-2">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink href="#">Zapify</BreadcrumbLink>
-                </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbPage>Automation</BreadcrumbPage>
@@ -185,7 +181,6 @@ export function Automation() {
 
         {/* Main Content */}
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          {/* Top Bar */}
           <div className="flex items-center justify-between py-4">
             <Input
               placeholder="Search by name..."
@@ -198,7 +193,6 @@ export function Automation() {
             </Button>
           </div>
 
-          {/* Table */}
           <div className="rounded-md border">
             <Table>
               <TableHeader>
@@ -247,8 +241,6 @@ export function Automation() {
               </TableBody>
             </Table>
           </div>
-
-          {/* Footer */}
           <div className="flex items-center justify-between py-4">
             <div className="text-sm">
               {table.getFilteredSelectedRowModel().rows.length} of{" "}

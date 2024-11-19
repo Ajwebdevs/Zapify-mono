@@ -47,7 +47,7 @@ const data = {
     },
     {
       title: "Pricing/Billing",
-      url: "#",
+      url: "/billing",
       icon: CreditCard,
     },
   ],
