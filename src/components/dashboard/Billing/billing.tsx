@@ -162,7 +162,9 @@ export default function Pricing() {
                 color: "#7C8B9D",
                 opacity: "0.9",
             }}>Frequently Ask Questions</h2>
-            <h1 className="text-4xl flex items-center justify-center font-bold ">Everything you need to know</h1><br />
+            <h1 className="text-sm flex items-center justify-center font-bold " style={{
+                fontSize: "1.7rem",
+            }}>Everything you need to know</h1><br />
             {faqData.map((faq, index) => (
                          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <Collapsible key={index} className="border gap-5 rounded-md p-4">
