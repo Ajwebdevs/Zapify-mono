@@ -157,13 +157,13 @@ export default function Pricing() {
             </Card>
           </div>
           <div className="flex flex-1 flex-col gap-4 p-5 pt-10">
-            <h2 className="text-2xl flex items-center justify-center font-bold"
+            <h2 className="text-xl flex items-center justify-center font-bold"
             style={{
                 color: "#7C8B9D",
                 opacity: "0.9",
             }}>Frequently Ask Questions</h2>
             <h1 className="text-sm flex items-center justify-center font-bold " style={{
-                fontSize: "1.7rem",
+                fontSize: "1.4rem",
             }}>Everything you need to know</h1><br />
             {faqData.map((faq, index) => (
                          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
