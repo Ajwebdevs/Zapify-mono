@@ -189,7 +189,7 @@ export function Dashboard() {
               </div>
             </div>
 
-            <div className="flex items-center p-4 rounded-lg bg-[#56B8A8] bg-opacity-50">
+            <div className="flex items-center p-4 rounded-lg bg-[#56B8A8] bg-opacity-30">
               {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
               <div className="w-1 h-full bg-green-500 rounded-l-lg mr-4"></div>
               <div>
@@ -199,7 +199,7 @@ export function Dashboard() {
               </div>
             </div>
 
-            <div className="flex items-center p-4 rounded-lg bg-[#FCBC65] bg-opacity-50">
+            <div className="flex items-center p-4 rounded-lg bg-[#FCBC65] bg-opacity-30">
               {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
               <div className="w-1 h-full bg-orange-500 rounded-l-lg mr-4"></div>
               <div>
