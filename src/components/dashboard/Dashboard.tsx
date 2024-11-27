@@ -103,38 +103,39 @@ export function Dashboard() {
           </div>
         </header>
 
-        <div className="flex flex-col gap-4 p-4 pt-0 md:grid-cols-2">
-          <div className="grid grid-cols-2 gap-6 p-4 rounded-xl bg-muted/50 md:grid-cols-2">
-            <div
-              className="flex items-center gap-2 p-4 rounded-lg"
-              style={{
-                background: "linear-gradient(to right, #FFAA70, #F97316 100%)",
-              }}
-            >
-              <span className="text-2xl font-bold text-white">1</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Contacts</h3>
-                <p className="text-white/80">Details about contacts...</p>
-              </div>
-            </div>
+        <div className="flex flex-col gap-4 p-4 pt-0">
+          {/* cards */}
+        <div className="grid sm:grid-cols-2 gap-6 p-4 rounded-xl bg-muted/50 grid-cols-1">
+  <div className="flex items-center gap-4 p-4 rounded-lg bg-white shadow-md">
+    <div
+      className="flex items-center justify-center w-8 h-8 rounded-md"
+      style={{
+        background: "linear-gradient(to right, #FFAA70, #F97316 100%)",
+      }}
+    >
+      <span className="text-base font-bold text-white">1</span>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-gray-800">Contacts</h3>
+      <p className="text-gray-600">Details about contacts...</p>
+    </div>
+  </div>
 
-            <div
-              className="flex items-center gap-2 p-4 rounded-lg"
-              style={{
-                background: "linear-gradient(to right, #8BBCFC, #4D98FA)",
-              }}
-            >
-              <span className="text-2xl font-bold text-white">2</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white">
-                  Connected Pages
-                </h3>
-                <p className="text-white/80">
-                  Details about connected pages...
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className="flex items-center gap-4 p-4 rounded-lg bg-white shadow-md">
+    <div
+      className="flex items-center justify-center w-8 h-8 rounded-md"
+      style={{
+        background: "linear-gradient(to right, #8BBCFC, #4D98FA)",
+      }}
+    >
+      <span className="text-base font-bold text-white">2</span>
+    </div>
+    <div>
+      <h3 className="text-lg font-semibold text-gray-800">Connected Pages</h3>
+      <p className="text-gray-600">Details about connected pages...</p>
+    </div>
+  </div>
+</div>
 
           <div className="grid gap-4 md:grid-cols-2">
             <Card>
@@ -189,7 +190,7 @@ export function Dashboard() {
               </div>
             </div>
 
-            <div className="flex items-center p-4 rounded-lg bg-[#56B8A8] bg-opacity-20">
+            <div className="flex items-center p-4 rounded-lg bg-[#56B8A8] bg-opacity-10">
               {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
               <div className="w-1 h-full bg-green-500 rounded-l-lg mr-4"></div>
               <div>
@@ -199,7 +200,7 @@ export function Dashboard() {
               </div>
             </div>
 
-            <div className="flex items-center p-4 rounded-lg bg-[#FCBC65] bg-opacity-20">
+            <div className="flex items-center p-4 rounded-lg bg-[#FCBC65] bg-opacity-10">
               {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
               <div className="w-1 h-full bg-orange-500 rounded-l-lg mr-4"></div>
               <div>
