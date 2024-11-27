@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as dashboardDashboardImport } from './routes/(dashboard)/dashboard'
+import { Route as dashboardContactImport } from './routes/(dashboard)/contact'
 import { Route as dashboardBillingImport } from './routes/(dashboard)/billing'
 import { Route as dashboardAutomationImport } from './routes/(dashboard)/automation'
 
@@ -27,6 +28,12 @@ const IndexRoute = IndexImport.update({
 const dashboardDashboardRoute = dashboardDashboardImport.update({
   id: '/(dashboard)/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const dashboardContactRoute = dashboardContactImport.update({
+  id: '/(dashboard)/contact',
+  path: '/contact',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,6 +74,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof dashboardBillingImport
       parentRoute: typeof rootRoute
     }
+    '/(dashboard)/contact': {
+      id: '/(dashboard)/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof dashboardContactImport
+      parentRoute: typeof rootRoute
+    }
     '/(dashboard)/dashboard': {
       id: '/(dashboard)/dashboard'
       path: '/dashboard'
@@ -83,6 +97,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/automation': typeof dashboardAutomationRoute
   '/billing': typeof dashboardBillingRoute
+  '/contact': typeof dashboardContactRoute
   '/dashboard': typeof dashboardDashboardRoute
 }
 
@@ -90,6 +105,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/automation': typeof dashboardAutomationRoute
   '/billing': typeof dashboardBillingRoute
+  '/contact': typeof dashboardContactRoute
   '/dashboard': typeof dashboardDashboardRoute
 }
 
@@ -98,19 +114,21 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/(dashboard)/automation': typeof dashboardAutomationRoute
   '/(dashboard)/billing': typeof dashboardBillingRoute
+  '/(dashboard)/contact': typeof dashboardContactRoute
   '/(dashboard)/dashboard': typeof dashboardDashboardRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/automation' | '/billing' | '/dashboard'
+  fullPaths: '/' | '/automation' | '/billing' | '/contact' | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/automation' | '/billing' | '/dashboard'
+  to: '/' | '/automation' | '/billing' | '/contact' | '/dashboard'
   id:
     | '__root__'
     | '/'
     | '/(dashboard)/automation'
     | '/(dashboard)/billing'
+    | '/(dashboard)/contact'
     | '/(dashboard)/dashboard'
   fileRoutesById: FileRoutesById
 }
@@ -119,6 +137,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   dashboardAutomationRoute: typeof dashboardAutomationRoute
   dashboardBillingRoute: typeof dashboardBillingRoute
+  dashboardContactRoute: typeof dashboardContactRoute
   dashboardDashboardRoute: typeof dashboardDashboardRoute
 }
 
@@ -126,6 +145,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   dashboardAutomationRoute: dashboardAutomationRoute,
   dashboardBillingRoute: dashboardBillingRoute,
+  dashboardContactRoute: dashboardContactRoute,
   dashboardDashboardRoute: dashboardDashboardRoute,
 }
 
@@ -142,6 +162,7 @@ export const routeTree = rootRoute
         "/",
         "/(dashboard)/automation",
         "/(dashboard)/billing",
+        "/(dashboard)/contact",
         "/(dashboard)/dashboard"
       ]
     },
@@ -153,6 +174,9 @@ export const routeTree = rootRoute
     },
     "/(dashboard)/billing": {
       "filePath": "(dashboard)/billing.tsx"
+    },
+    "/(dashboard)/contact": {
+      "filePath": "(dashboard)/contact.tsx"
     },
     "/(dashboard)/dashboard": {
       "filePath": "(dashboard)/dashboard.tsx"

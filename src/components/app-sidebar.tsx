@@ -42,7 +42,7 @@ const data = {
     },
     {
       title: "Contact",
-      url: "#",
+      url: "/contact",
       icon: LifeBuoy, 
     },
     {
