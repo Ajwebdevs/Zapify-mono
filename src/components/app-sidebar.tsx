@@ -5,7 +5,8 @@ import {
   SquareTerminal,
 } from "lucide-react"
 import { CreditCard } from 'lucide-react';
-import { NavMain } from "@/components/nav-main"
+import { NavMain } from "@/components/nav-main";
+import { NavUser } from "./nav-user";
 // import { NavProjects } from "@/components/nav-projects"
 // import { NavSecondary } from "@/components/nav-secondary"
 import {
@@ -15,12 +16,13 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarFooter,
 } from "@/components/ui/sidebar"
 import IMAGES from '@/assets/images';
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Zapify",
+    email: "email@zapify.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -83,9 +85,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <NavProjects projects={data.projects} /> */}
         {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
-      {/* <SidebarFooter>
+      <SidebarFooter>
         <NavUser user={data.user} />
-      </SidebarFooter> */}
+      </SidebarFooter>
     </Sidebar>
   )
 }
