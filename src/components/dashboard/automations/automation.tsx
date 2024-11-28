@@ -189,12 +189,8 @@ export function Automation() {
               onChange={(e) => setSearchValue(e.target.value)}
               className="max-w-full sm:max-w-sm"
             />
-            <Button
-              variant="default"
-              className="bg-orange-500 text-white w-full sm:w-auto"
-            >
-              + New Automation
-            </Button>
+            <AutomationWorkFlow/>
+    
           </div>
 
           <div className="rounded-md border overflow-x-auto">
