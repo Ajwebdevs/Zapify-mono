@@ -35,6 +35,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Checkbox } from "@/components/ui/checkbox";
+import { AutomationWorkFlow } from "./workflow/automationworkflow";
 
 export type Automation = {
   id: string;
@@ -188,9 +189,10 @@ export function Automation() {
               onChange={(e) => setSearchValue(e.target.value)}
               className="max-w-sm"
             />
-            <Button variant="default" className="bg-orange-500 text-white">
-              + New Automation
-            </Button>
+            {/* new atuomation create trigger */}
+            {/* <Button variant="default" className="bg-orange-500 text-white">
+            </Button> */}
+            <AutomationWorkFlow/>
           </div>
 
           <div className="rounded-md border">
