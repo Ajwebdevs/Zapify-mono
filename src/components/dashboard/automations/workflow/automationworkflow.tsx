@@ -1,11 +1,16 @@
 "use client";
 
+// import { useState } from "react";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { HelpCircle } from "lucide-react";
 import IMAGES from "@/assets/images";
+import ProgressBar from "./ProgressBar";
+
+
+
 
 export function AutomationWorkFlow() {
   const [open, setOpen] = React.useState(false);
@@ -14,6 +19,16 @@ export function AutomationWorkFlow() {
     console.log(`Running automation on: ${type}`);
     alert(`Stub: Automation will run on ${type}`);
   };
+
+  // const [, setCurrentStep] = useState(1);
+
+  // const handleNext = () => {
+  //   setCurrentStep((prev) => (prev < 4 ? prev + 1 : 4));
+  // };
+
+  // const handlePrevious = () => {
+  //   setCurrentStep((prev) => (prev > 1 ? prev - 1 : 1));
+  // };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -34,11 +49,32 @@ export function AutomationWorkFlow() {
             </p>
           </div>
           <div className="w-full flex justify-center">
-            <img
+            {/* <img
               src={IMAGES.AutoStage1}
               alt="Stage 1"
               className="w-full max-w-sm h-auto object-contain"
-            />
+            /> */}
+                <div className="p-4">
+                <ProgressBar currentStep={1} lineImageSrc={IMAGES.Lines} />
+
+
+      <div className="mt-8 flex justify-center space-x-4">
+        {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+        {/* <button
+          onClick={handlePrevious}
+          className="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
+        >
+          Previous
+        </button> */}
+        {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+        {/* <button
+          onClick={handleNext}
+          className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600"
+        >
+          Next
+        </button> */}
+      </div>
+    </div>
           </div>
           <div className="flex gap-4 w-full">
             <Button

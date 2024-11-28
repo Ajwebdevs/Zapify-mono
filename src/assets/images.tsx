@@ -6,6 +6,7 @@ const IMAGES = {
     FbImage: new URL("./Dashboard/Fblogo.png", import.meta.url).href,
     PhoneAuto: new URL("./Dashboard/Automation/AutomationPhone.png", import.meta.url).href,
     AutoStage1: new URL("./Dashboard/Automation/Automation1.png" , import.meta.url).href,
+    Lines: new URL("./Dashboard/Automation/LINES.png" , import.meta.url).href,
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
