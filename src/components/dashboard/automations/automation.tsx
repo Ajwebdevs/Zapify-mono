@@ -81,15 +81,13 @@ export const columns: ColumnDef<Automation>[] = [
       <Checkbox
         checked={table.getIsAllPageRowsSelected()}
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-            // className="w-4 !important h-4""
-
+        // className="w-4 !important h-4""
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-
       />
     ),
     enableSorting: false,
@@ -105,7 +103,9 @@ export const columns: ColumnDef<Automation>[] = [
     cell: ({ row }) => (
       <span
         className={`${
-          row.getValue("status") === "Active" ? "text-green-500" : "text-red-500"
+          row.getValue("status") === "Active"
+            ? "text-green-500"
+            : "text-red-500"
         }`}
       >
         {row.getValue("status")}
@@ -182,21 +182,23 @@ export function Automation() {
 
         {/* Main Content */}
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="flex items-center justify-between py-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between py-4">
             <Input
               placeholder="Search by name..."
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
-              className="max-w-sm"
+              className="max-w-full sm:max-w-sm"
             />
-            {/* new atuomation create trigger */}
-            {/* <Button variant="default" className="bg-orange-500 text-white">
-            </Button> */}
-            <AutomationWorkFlow/>
+            <Button
+              variant="default"
+              className="bg-orange-500 text-white w-full sm:w-auto"
+            >
+              + New Automation
+            </Button>
           </div>
 
-          <div className="rounded-md border">
-            <Table>
+          <div className="rounded-md border overflow-x-auto">
+            <Table className="min-w-full">
               <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow key={headerGroup.id}>
@@ -232,10 +234,7 @@ export function Automation() {
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell
-                      colSpan={columns.length}
-                      className="text-center"
-                    >
+                    <TableCell colSpan={columns.length} className="text-center">
                       No Automations Found.
                     </TableCell>
                   </TableRow>
