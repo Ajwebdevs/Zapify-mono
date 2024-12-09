@@ -6,22 +6,14 @@ import {
   Card,
   CardHeader,
   CardTitle,
-  CardDescription,
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
-
 import {
-  FaInstagram,
   FaClock,
-  FaThumbsUp,
   FaTrash,
   FaEdit,
 } from "react-icons/fa";
-import { MdChatBubble } from "react-icons/md";
-import { BsArrowLeft } from "react-icons/bs";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -31,29 +23,21 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
-import {
-  type ColumnDef,
-  type SortingState,
-  getCoreRowModel,
-  getSortedRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 // import {
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableHead,
-//   TableHeader,
-//   TableRow,
-// } from "@/components/ui/table";
+//   type ColumnDef,
+//   type SortingState,
+//   getCoreRowModel,
+//   getSortedRowModel,
+//   useReactTable,
+// } from "@tanstack/react-table";
+// import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Checkbox } from "@/components/ui/checkbox";
+// import { Checkbox } from "@/components/ui/checkbox";
 import { AutomationWorkFlow } from "./workflow/automationworkflow";
 
 export type Automation = {
@@ -65,121 +49,68 @@ export type Automation = {
   isOn: boolean;
 };
 
-// Later to be replaced withs API data
-const data: Automation[] = [
-  {
-    id: "1",
-    name: "Daily Backup",
-    status: "Active",
-    lastRun: "2024-11-17",
-    prevRun: "2024-11-16",
-    isOn: true,
-  },
-  {
-    id: "2",
-    name: "Monthly Report",
-    status: "Inactive",
-    lastRun: "2024-10-31",
-    prevRun: "2024-10-30",
-    isOn: false,
-  },
-  {
-    id: "3",
-    name: "Weekly Update",
-    status: "Active",
-    lastRun: "2024-11-12",
-    prevRun: "2024-11-05",
-    isOn: true,
-  },
-];
 import IMAGES from "@/assets/images";
-export const columns: ColumnDef<Automation>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        // className="w-4 !important h-4""
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-      />
-    ),
-    enableSorting: false,
-  },
-  {
-    accessorKey: "name",
-    header: "Name",
-    cell: ({ row }) => <span>{row.getValue("name")}</span>,
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <span
-        className={`${
-          row.getValue("status") === "Active"
-            ? "text-green-500"
-            : "text-red-500"
-        }`}
-      >
-        {row.getValue("status")}
-      </span>
-    ),
-  },
-  {
-    accessorKey: "lastRun",
-    header: "Last Run",
-    cell: ({ row }) => <span>{row.getValue("lastRun")}</span>,
-  },
-  {
-    accessorKey: "prevRun",
-    header: "Prev Run",
-    cell: ({ row }) => <span>{row.getValue("prevRun")}</span>,
-  },
-  {
-    accessorKey: "isOn",
-    header: "On/Off",
-    cell: ({ row }) => (
-      <Button variant={row.getValue("isOn") ? "outline" : "outline"} size="sm">
-        {row.getValue("isOn") ? "On" : "Off"}
-      </Button>
-    ),
-  },
-];
+// export const columns: ColumnDef<Automation>[] = [
+//   {
+//     id: "select",
+//     header: ({ table }) => (
+//       <Checkbox
+//         checked={table.getIsAllPageRowsSelected()}
+//         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+//         // className="w-4 !important h-4""
+//       />
+//     ),
+//     cell: ({ row }) => (
+//       <Checkbox
+//         checked={row.getIsSelected()}
+//         onCheckedChange={(value) => row.toggleSelected(!!value)}
+//       />
+//     ),
+//     enableSorting: false,
+//   },
+//   {
+//     accessorKey: "name",
+//     header: "Name",
+//     cell: ({ row }) => <span>{row.getValue("name")}</span>,
+//   },
+//   {
+//     accessorKey: "status",
+//     header: "Status",
+//     cell: ({ row }) => (
+//       <span
+//         className={`${
+//           row.getValue("status") === "Active"
+//             ? "text-green-500"
+//             : "text-red-500"
+//         }`}
+//       >
+//         {row.getValue("status")}
+//       </span>
+//     ),
+//   },
+//   {
+//     accessorKey: "lastRun",
+//     header: "Last Run",
+//     cell: ({ row }) => <span>{row.getValue("lastRun")}</span>,
+//   },
+//   {
+//     accessorKey: "prevRun",
+//     header: "Prev Run",
+//     cell: ({ row }) => <span>{row.getValue("prevRun")}</span>,
+//   },
+//   {
+//     accessorKey: "isOn",
+//     header: "On/Off",
+//     cell: ({ row }) => (
+//       <Button variant={row.getValue("isOn") ? "outline" : "outline"} size="sm">
+//         {row.getValue("isOn") ? "On" : "Off"}
+//       </Button>
+//     ),
+//   },
+// ];
 
 export function Automation() {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [rowSelection, setRowSelection] = React.useState({});
   const [searchValue, setSearchValue] = React.useState("");
-  const [filteredData, setFilteredData] = React.useState(data);
-
-  const table = useReactTable({
-    data: filteredData,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    onSortingChange: setSorting,
-    onRowSelectionChange: setRowSelection,
-    state: { sorting, rowSelection },
-  });
-
-  // Filter Data Based on Search Input
-  React.useEffect(() => {
-    const lowercasedSearch = searchValue.toLowerCase();
-    setFilteredData(
-      data.filter((item) =>
-        Object.values(item).some((value) =>
-          String(value).toLowerCase().includes(lowercasedSearch)
-        )
-      )
-    );
-  }, [searchValue]);
-
   return (
     <SidebarProvider>
       <AppSidebar />
